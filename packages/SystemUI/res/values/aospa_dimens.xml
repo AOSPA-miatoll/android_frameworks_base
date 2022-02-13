@@ -47,4 +47,12 @@
     <!-- StatusBar burn-in protection -->
     <dimen name="horizontal_max_shift">3.0dp</dimen>
     <dimen name="vertical_max_shift">2.0dp</dimen>
+
+    <!-- Media output -->
+    <dimen name="dialog_button_vertical_inset">6dp</dimen>
+    <dimen name="dialog_button_horizontal_padding">16dp</dimen>
+    <dimen name="dialog_button_vertical_padding">8dp</dimen>
+    <dimen name="dialog_side_padding">24dp</dimen>
+    <dimen name="dialog_bottom_padding">18dp</dimen>
+
 </resources>
