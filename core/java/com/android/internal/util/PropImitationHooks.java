@@ -55,6 +55,7 @@ public class PropImitationHooks {
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     private static final String PACKAGE_SNAPCHAT = "com.snapchat.android";
     private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
+    private static final String PACKAGE_GBOARD = "com.google.android.inputmethod.latin";
 
     private static final String PROCESS_GMS_PERSISTENT = PACKAGE_GMS + ".persistent";
     private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
@@ -75,6 +76,15 @@ public class PropImitationHooks {
         "PRODUCT", "marlin",
         "MODEL", "Pixel XL",
         "FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"
+    );
+
+    private static final Map<String, Object> sP7Props = Map.of(
+        "BRAND", "google",
+        "MANUFACTURER", "Google",
+        "DEVICE", "cheetah",
+        "PRODUCT", "cheetah",
+        "MODEL", "Pixel 7 Pro",
+        "FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230505.002/9891397:user/release-keys"
     );
 
     private static final Set<String> sFeatureBlacklist = Set.of(
@@ -133,6 +143,9 @@ public class PropImitationHooks {
         } else if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
             dlog("Setting model to " + sNetflixModel + " for Netflix");
             setPropValue("MODEL", sNetflixModel);
+        } else if (packageName.equals(PACKAGE_GBOARD)) {
+            dlog("Spoofing Pixel 7 Pro for Google Keyboard");
+            sP7Props.forEach(PropImitationHooks::setPropValue);
         }
     }
 
